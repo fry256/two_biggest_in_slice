@@ -1,7 +1,7 @@
-# Test task:
+## Task description:
 Finding two biggest numbers in a slice of float32
 
-## Uses
+## Uses:
 - Run tests
 ```sh
 $ make test
