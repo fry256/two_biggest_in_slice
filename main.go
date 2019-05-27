@@ -22,6 +22,7 @@ func main() {
 		[]float32{-34.5, 21.2, 1.0, -43.4},
 		[]float32{-1.0, 0, -2.0, 0, 1.0},
 		[]float32{-1.0, 0},
+		[]float32{1.32, 1.32, 1, 1},
 	}
 
 	for _, tc := range testCases {
@@ -45,7 +46,15 @@ func twoBiggestEls(numbers []float32) (float32, float32, error) {
 	}
 
 	if len(numbers[2:]) == 0 {
+		if previos == current {
+			return 0, 0, errors.New("Error! Input slice didn't include two different elements")
+		}
 		return previos, current, nil
+	}
+
+	hasIdenticalErr := false
+	if previos == current {
+		hasIdenticalErr = true
 	}
 
 	for _, n := range numbers[2:] {
@@ -59,6 +68,11 @@ func twoBiggestEls(numbers []float32) (float32, float32, error) {
 		}
 
 		if n > previos {
+			previos = n
+		}
+
+		if hasIdenticalErr && n < previos {
+			hasIdenticalErr = false
 			previos = n
 		}
 	}

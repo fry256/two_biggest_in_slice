@@ -32,6 +32,15 @@ func Test_twoBiggestEls(t *testing.T) {
 			wantErr: true,
 		},
 		{
+			name: "Two of the same item",
+			args: args{
+				numbers: []float32{3.0, 3.0},
+			},
+			want:    0,
+			want1:   0,
+			wantErr: true,
+		},
+		{
 			name: "Haven't different elements",
 			args: args{
 				numbers: []float32{2.0, 2.0, 2.0, 2.0, 2.0, 2.0},
@@ -65,6 +74,15 @@ func Test_twoBiggestEls(t *testing.T) {
 			},
 			want:    34.5,
 			want1:   43.4,
+			wantErr: false,
+		},
+		{
+			name: "Correct answer 4",
+			args: args{
+				numbers: []float32{5, 5, 5, 5, 4, 4},
+			},
+			want:    4,
+			want1:   5,
 			wantErr: false,
 		},
 	}
