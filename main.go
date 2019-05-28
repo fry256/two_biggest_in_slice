@@ -22,7 +22,8 @@ func main() {
 		[]float32{-34.5, 21.2, 1.0, -43.4},
 		[]float32{-1.0, 0, -2.0, 0, 1.0},
 		[]float32{-1.0, 0},
-		[]float32{1.32, 1.32, 1, 1},
+		[]float32{1.32, 1.32, 1.2, 0.5, 1, 1},
+		[]float32{5, 5, 5, 4, 4},
 	}
 
 	for _, tc := range testCases {
@@ -71,7 +72,7 @@ func twoBiggestEls(numbers []float32) (float32, float32, error) {
 			previos = n
 		}
 
-		if hasIdenticalErr && n < previos {
+		if hasIdenticalErr {
 			hasIdenticalErr = false
 			previos = n
 		}
